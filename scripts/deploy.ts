@@ -21,7 +21,7 @@ export default function main(): void {
     const output: string = path.resolve(__dirname, OUTPUT_DIRECTORY)
     copyFile(PACKAGE_CONFIG, output)
     genBinFile({ output })
-    console.log(`TOKEN`, process.env.NPM_TOKEN)
+    console.log(`TOKEN`, process.env)
     execSync(`npm publish`, { cwd: output })
 }
 
