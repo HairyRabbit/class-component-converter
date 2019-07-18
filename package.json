@@ -17,7 +17,8 @@
     "lint": "prettier --config ./prettier.json --list-different ./src/**/* ./src/* ./tests/**/* ./tests/* ./webpack.config.ts",
     "prettier": "prettier --config ./prettier.json --write ./src/**/* ./src/* ./tests/**/* ./tests/* ./webpack.config.ts",
     "gen:readme": "ts-node ./scripts/readme-gen.ts",
-    "deploy": "echo $NPM_TOKEN"
+    "predeploy": "npm run build && cp package.json ./libs",
+    "deploy": "cd libs && npm publish"
   },
   "repository": {
     "type": "git",
