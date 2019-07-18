@@ -5,9 +5,6 @@ node_js:
 
 sudo: false
 
-env:
-  - secure: "MB97rm8ALw56Zu3zWnLBKZ5oAFzsy6n3vcfer2GdizEYoDyAjOyrpOUSbjMVO+D3jW7NTgVYI1QBAZxrARjCCIrIFYWms1UDiIhDqtuvmmzdonRwDXw1Xm0sM+ydnfk56bscgGqw+xuD+1Mk9BT5gNFiWevt3uXAWnA0YK8uZyxsTSHx/vzdzp9qGnaOMIrdum3fPG5yLTHUzDT+1vd10/N6B3RzDcLFQkpa7lKXydB0tmT6su17yGz1mWlz32WR8z2jF1XAw/6rlvjnbcR0J3pzWzsj4YOtbpfh9s2PocoYPdiOH/GaX7zT+IUIGHFAqKDsnR9AjIiJoKPCATeMfY2NH8ewuVsabP7l88TdLuAkCnV+jspRBo+2tw4bbeaFJwpHV9hIfgAETLjyrIXPrb7kS11TCvD//TzHJIGzGTUBsP4BV3fozTotpt2t49mh6VHgUaN51hvdY2xpKMcaKoXSL1L7dS9rWaavnasI2ysNliuzFylcGsr3y1+9r2aP2Rm/UefNmCCWC/NHtzU7toXr+jrHSfl7zzlrSAjulyuoGpVJ2jyBDIMwP/WiC1DosReeKX3QjWaXmzdlFJTD5svWDTkBPDuB9orBNeK5y1n8L09chZWZeNtEc49lw/pjnZLRpy6NL0hDfmwlKpENg+GdreCkG1VNlqBIn1WuLp4="
-
 codecov: true
 
 before_install:
@@ -29,8 +26,12 @@ stages:
 
 deploy:
   skip_cleanup: true
+  env:
+    - secure: "d2thNEg8n57peBKP6Gd1l88LsUth9PZ2323WuXsSlo46m3BNgPk2Z3/PWGhEcxjxilnta7VwiE+gxAUwh9F2nMzh631w8P6i7iQln7If5zg40+VUlWe3dLly9fH/oCdwrh5t8qhsFgVDMUZMQEhjPmLF/pnJ1hc7elWdJgzMTN8USfLgSJp87QExQIFq7nAxgMvuRJY8lHV1yM/mR/XhVFEY+gXulMZ1jIi+/7oy5tO0EM7RUER9lLmkQXQquxHcrwc34EBVGhPw/tz2qyfiAPXoH02/F2jOkDquIptpCZOU93N2e3yVpaCkdhI0Kl542uUfHgbE+T+ANvKJLdn6I/cgluZGqohc3sBgQSBsMFR4WGbc2tdTdm6K5v/f+9vY/aSaRY1ApZBCAXNkRoegnuLECKUuYodp+niuDmG7pyUtJaM/j8zsBRI6kGMnFsUdjTPpwTN3fJmhdy1xkpm9VbHK6OaDWnHHmlHdniartG/KnHlJxbjvUSmGCN5sXlkf4v+jh9mkJ+mohlYmfteiPcxD6EPE540ZL1YXNUrvJd+JKdSmcGhjM3naRyBlCdliRYcZ8VWhvG9EwUSEDNDwOYXoZCttzeUg6aQfLyFSM47BII84BwiXO7p9h5Ml6/v6VEaWU5biE6HX/k3DjtIJ8ODrMM5MZvfhHo+tbLBHJVw="
   provider: script
-  script: yarn run deploy
+  script: 
+    - echo $NPM_TOKEN
+    - yarn run deploy  
   on:
     tags: true
 
