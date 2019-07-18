@@ -22,6 +22,14 @@ cache:
 
 stages:
   - test
+  - coverage
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: ./scripts/deploy.ts
+  on:
+    tags: true
 
 jobs:
   include:
