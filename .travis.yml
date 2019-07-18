@@ -27,7 +27,6 @@ cache:
 stages:
   - test
   - coverage
-  - build
 
 deploy:
   skip_cleanup: true
@@ -50,9 +49,6 @@ jobs:
       script:
         - yarn run test:co
         - codecov
-    
-    - stage: build
-      script: yarn run build
 
 matrix:
   fast_finish: true

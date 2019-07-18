@@ -17,6 +17,7 @@ function copyFile(from: string, output: string) {
 }
 
 export default function main(): void {
+    execSync(`npm run build`)
     const output: string = path.resolve(__dirname, OUTPUT_DIRECTORY)
     copyFile(PACKAGE_CONFIG, output)
     genBinFile({ output })
